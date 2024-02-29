@@ -84,8 +84,8 @@ export SECOND_BRAIN="$HOME/Documents/second-brain"
 export SCRIPTS="$HOME/Documents/scripts"
 export PATH="$PATH:$SCRIPTS"
 export STX="$HOME/Documents/stxnext/"
-export CONFIG="$HOME/.config/" 
 export BAT_THEME="gruvbox-dark"
+export DOTFILES="$HOME/dotfiles/"
 # export MANPATH="/usr/local/man:$MANPATH"
 #
 # autocompletion 1Password
