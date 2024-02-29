@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/boorish/.oh-my-zsh"
+export ZSH="/Users/$USER/.oh-my-zsh"
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -72,8 +72,7 @@ DISABLE_LS_COLORS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast zsh-autosuggestions zsh-syntax-highlighting battery 
-ls web-search last-working-dir)
+plugins=(gitfast zsh-autosuggestions zsh-syntax-highlighting battery web-search last-working-dir)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -132,9 +131,10 @@ alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}
 alias vf='v "$(fp)"'
 
 
-#autocompletion snipe-cli
-. ~/.snipe-cli-complete.zsh
-#
+#autocompletion snipe-cli on work laptop
+if [ $HOST = "C02GV0P4Q6LR.local" ]; then
+  . ~/.snipe-cli-complete.zsh
+fi
 #pomodoro
 alias work="timer 30m && terminal-notifier -message 'Pomodoro'\
         -title 'Work Timer is up! Take a Break 😊'\
@@ -191,11 +191,9 @@ j() {
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/boorish/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/boorish/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/$USER/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/boorish/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/boorish/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/boorish/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/$USER/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/boorish/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(starship init zsh)"
-
-
