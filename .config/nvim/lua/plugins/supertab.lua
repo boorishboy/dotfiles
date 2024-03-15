@@ -24,6 +24,11 @@ return {
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 
+      luasnip.config.set_config({
+        region_check_events = "InsertEnter",
+        delete_check_events = "TextChanged,InsertLeave",
+      })
+
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
