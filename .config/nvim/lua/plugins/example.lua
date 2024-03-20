@@ -144,6 +144,12 @@ return {
   -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
+    require("nvim-treesitter.configs").setup({
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
+    }),
     opts = {
       ensure_installed = {
         "bash",
