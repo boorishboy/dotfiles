@@ -132,7 +132,7 @@ alias vf='v "$(fp)"'
 
 
 #autocompletion snipe-cli on work laptop
-if [ $HOST = "C02GV0P4Q6LR.local" ]; then
+if [[ -f $HOME/.snipe-cli-complete.zsh ]]; then
   . ~/.snipe-cli-complete.zsh
 fi
 #pomodoro
@@ -197,3 +197,6 @@ if [ -f '/Users/$USER/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 if [ -f '/Users/$USER/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/boorish/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(starship init zsh)"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
