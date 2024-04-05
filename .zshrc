@@ -82,7 +82,8 @@ source $ZSH/oh-my-zsh.sh
 
 export SECOND_BRAIN="$HOME/Documents/second-brain"
 export SCRIPTS="$HOME/Documents/scripts"
-export PATH="$PATH:$SCRIPTS"
+export GOPATH=$HOME/go
+export PATH="$PATH:$SCRIPTS:$GOPATH/bin/"
 export STX="$HOME/Documents/stxnext/"
 export BAT_THEME="gruvbox-dark"
 export DOTFILES="$HOME/dotfiles/"
@@ -200,3 +201,6 @@ eval "$(starship init zsh)"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+
