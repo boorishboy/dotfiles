@@ -174,6 +174,7 @@ eval $(thefuck --alias FUCK)
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PATH="/opt/metasploit-framework/bin/:$PATH"
 
+eval "$(fzf --zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
