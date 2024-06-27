@@ -117,6 +117,7 @@ alias lsdisk="diskutil list"
 alias eject="diskutil eject"
 
 alias v=nvim
+alias oo="cd ~/Documents/vaults/work/"
 
 #ls aliases
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
@@ -136,17 +137,6 @@ alias vf='v "$(fp)"'
 if [[ -f $HOME/.snipe-cli-complete.zsh ]]; then
   . ~/.snipe-cli-complete.zsh
 fi
-#pomodoro
-alias work="timer 30m && terminal-notifier -message 'Pomodoro'\
-        -title 'Work Timer is up! Take a Break 😊'\
-        -appIcon '~/Downloads/boorish_logo.JPG'\
-        -sound Crystal"
-        
-alias rest="timer 5m && terminal-notifier -message 'Pomodoro'\
-        -title 'Break is over! Get back to work 😬'\
-        -appIcon '~/Downloads/boorish_logo.JPG'\
-        -sound Crystal"
-
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
 
