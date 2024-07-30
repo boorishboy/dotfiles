@@ -7695,11 +7695,17 @@
 	<integer>0</integer>
 	<key>TerminalMargin</key>
 	<integer>13</integer>
+	<key>TmuxSyncClipboard</key>
+	<true/>
+	<key>TmuxUsesDedicatedProfile</key>
+	<false/>
 	<key>ToolbeltTools</key>
 	<array>
 		<string>Profiles</string>
 	</array>
 	<key>UseBorder</key>
+	<false/>
+	<key>UseTmuxStatusBar</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
