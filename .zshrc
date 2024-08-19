@@ -181,20 +181,23 @@ j() {
     fi
 }
 
+if [ $(hostname) != "blackbox.local" ]; then
+  # The next line updates PATH for the Google Cloud SDK.
+  if [ -f '/Users/$USER/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/boorish/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/$USER/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/boorish/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+  # The next line enables shell command completion for gcloud.
+  if [ -f '/Users/$USER/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/boorish/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+  
+  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/$USER/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/boorish/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+fi
 
 eval "$(starship init zsh)"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+eval "$(pyenv init -)"
 
