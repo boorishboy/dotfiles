@@ -15,10 +15,10 @@ opacity=0.8
 blur=true
 
 [font]
-normal.family = "MesloLGS Nerd Font Mono"
+normal.family = "JetBrainsMono Nerd Font"
 
 #regular
-size = 24
+size = 18
 
 [keyboard]
 bindings = [
