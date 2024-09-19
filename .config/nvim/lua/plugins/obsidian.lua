@@ -19,7 +19,7 @@ return {
   opts = {
     workspaces = {
       {
-        name = "work",
+        name = "notes",
         path = "~/Documents/vaults/",
       },
     },
@@ -28,7 +28,7 @@ return {
 
     disable_frontmatter = true,
     templates = {
-      subdir = "~/Documents/vaults/work/Templates",
+      subdir = "~/Documents/vaults/notes/Templates",
       date_format = "%Y-%m-%d",
       time_format = "%H:%M:%S",
     },

@@ -117,7 +117,7 @@ alias lsdisk="diskutil list"
 alias eject="diskutil eject"
 
 alias v=nvim
-alias oo="cd ~/Documents/vaults/work/"
+alias oo="cd ~/Documents/vaults/notes/"
 
 #ls aliases
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
