@@ -15,7 +15,7 @@ opacity=0.8
 blur=true
 
 [font]
-normal.family = "Iosevka Nerd Font"
+normal.family = "Hack Nerd Font Mono"
 
 #regular
 size = 20
