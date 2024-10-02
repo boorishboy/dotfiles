@@ -1,9 +1,0 @@
-2024-09-11 15:48:30,087 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
-2024-09-11 15:48:30,103 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
-2024-09-11 15:48:30,104 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "project", VALUE: "callisto-protocol-generator"]
-2024-09-11 15:48:30,118 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
-2024-09-11 15:48:31,002 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/callisto-protocol-generator?alt=json HTTP/1.1" 200 None
-2024-09-11 15:48:31,009 INFO     ___FILE_ONLY___ Updated property [core/project].
-
-2024-09-11 15:48:31,010 DEBUG    root            Chosen display Format:default
-2024-09-11 15:48:31,011 INFO     root            Display format: "default"
