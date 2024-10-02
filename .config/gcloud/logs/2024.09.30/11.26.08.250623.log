@@ -1,0 +1,93 @@
+2024-09-30 11:26:08,253 DEBUG    root            Loaded Command Group: ['gcloud', 'storage']
+2024-09-30 11:26:08,254 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'objects']
+2024-09-30 11:26:08,323 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'objects', 'describe']
+2024-09-30 11:26:08,324 DEBUG    root            Running [gcloud.storage.objects.describe] with arguments: [URL: "gs://ws1-icons/macos/macos_adobe_reader_icon.png"]
+2024-09-30 11:26:08,336 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): storage.googleapis.com:443
+2024-09-30 11:26:08,464 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/ws1-icons/o/macos%2Fmacos_adobe_reader_icon.png?alt=json&projection=full HTTP/1.1" 200 815
+2024-09-30 11:26:08,478 DEBUG    root            Chosen display Format:default
+2024-09-30 11:26:08,479 INFO     root            Display format: "default"
+2024-09-30 11:26:08,479 INFO     ___FILE_ONLY___ bucket
+2024-09-30 11:26:08,479 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,479 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,480 INFO     ___FILE_ONLY___ ws1-icons
+2024-09-30 11:26:08,480 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,480 INFO     ___FILE_ONLY___ content_type
+2024-09-30 11:26:08,480 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,480 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,480 INFO     ___FILE_ONLY___ image/png
+2024-09-30 11:26:08,480 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,480 INFO     ___FILE_ONLY___ crc32c_hash
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ 4geRiA==
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ creation_time
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ 2024-04-30T06:55:15+0000
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ etag
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ CKLEsdGt6YUDEAE=
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ generation
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___  '
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ 1714460115624482
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ '
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ md5_hash
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ 6d+JOM6x/+0J4p3vwDmkOw==
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ metageneration
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ 1
+2024-09-30 11:26:08,481 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ name
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ macos/macos_adobe_reader_icon.png
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ size
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ 58570
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ storage_class
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ STANDARD
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ storage_class_update_time
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ 2024-04-30T06:55:15+0000
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ storage_url
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ gs://ws1-icons/macos/macos_adobe_reader_icon.png#1714460115624482
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ 
+
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ update_time
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ :
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___  
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ 2024-04-30T06:55:15+0000
+2024-09-30 11:26:08,482 INFO     ___FILE_ONLY___ 
+

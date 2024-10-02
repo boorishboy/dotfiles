@@ -1,0 +1,17 @@
+2024-09-11 15:49:58,009 DEBUG    root            Loaded Command Group: ['gcloud', 'storage']
+2024-09-11 15:49:58,011 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'buckets']
+2024-09-11 15:49:58,012 ERROR    root            (gcloud.storage.buckets) Command name argument expected.
+2024-09-11 15:49:58,104 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'buckets', 'set_iam_policy']
+2024-09-11 15:49:58,107 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'buckets', 'delete']
+2024-09-11 15:49:58,108 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'buckets', 'notifications']
+2024-09-11 15:49:58,118 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'buckets', 'update']
+2024-09-11 15:49:58,120 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'buckets', 'create']
+2024-09-11 15:49:58,120 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'buckets', 'get_iam_policy']
+2024-09-11 15:49:58,121 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'buckets', 'list']
+2024-09-11 15:49:58,122 DEBUG    root            No implementation for release track [GA] for element: [/opt/homebrew/share/google-cloud-sdk/lib/surface/storage/buckets/config]
+2024-09-11 15:49:58,122 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'buckets', 'add_iam_policy_binding']
+2024-09-11 15:49:58,123 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'buckets', 'remove_iam_policy_binding']
+2024-09-11 15:49:58,123 DEBUG    root            No implementation for release track [GA] for element: [/opt/homebrew/share/google-cloud-sdk/lib/surface/storage/buckets/anywhere_caches]
+2024-09-11 15:49:58,124 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'buckets', 'describe']
+2024-09-11 15:49:58,125 DEBUG    root            Chosen display Format:table[no-heading,margin=6,width=80]([0]:label='':align=left:width=22,[1]:label='':align=left:wrap)
+2024-09-11 15:49:58,130 DEBUG    root            Chosen display Format:table[no-heading,margin=6,width=80]([0]:label='':align=left:width=22,[1]:label='':align=left:wrap)

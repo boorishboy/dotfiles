@@ -168,7 +168,7 @@ eval "$(fzf --zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
-j() {
+function j() {
     local preview_cmd="ls {2..}"
     if command -v eza &> /dev/null; then
         preview_cmd="eza -l --color=always --icons=always {2}"
@@ -179,6 +179,15 @@ j() {
     else
         cd $(autojump $@)
     fi
+}
+
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
 }
 
 if [ $(hostname) != "blackbox.local" ]; then

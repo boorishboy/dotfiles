@@ -1,0 +1,11 @@
+2024-09-30 11:24:38,681 DEBUG    root            Loaded Command Group: ['gcloud', 'storage']
+2024-09-30 11:24:38,754 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'ls']
+2024-09-30 11:24:38,755 DEBUG    root            Running [gcloud.storage.ls] with arguments: [PATH:1: "['gs://ws1-icons/macos']"]
+2024-09-30 11:24:38,762 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): storage.googleapis.com:443
+2024-09-30 11:24:38,881 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/ws1-icons/o/macos?alt=json&fields=bucket%2Cname%2Csize%2Cgeneration&projection=noAcl HTTP/1.1" 404 237
+2024-09-30 11:24:38,884 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): storage.googleapis.com:443
+2024-09-30 11:24:39,034 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/ws1-icons/o?alt=json&fields=prefixes%2Citems%2Fname%2Citems%2Fsize%2Citems%2Fgeneration%2CnextPageToken&delimiter=%2F&includeFoldersAsPrefixes=True&maxResults=1000&prefix=macos&projection=noAcl HTTP/1.1" 200 37
+2024-09-30 11:24:39,044 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): storage.googleapis.com:443
+2024-09-30 11:24:39,168 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/ws1-icons/o?alt=json&fields=prefixes%2Citems%2Fname%2Citems%2Fsize%2Citems%2Fgeneration%2CnextPageToken&delimiter=%2F&includeFoldersAsPrefixes=True&maxResults=1000&prefix=macos%2F&projection=noAcl HTTP/1.1" 200 4826
+2024-09-30 11:24:39,184 DEBUG    root            Chosen display Format:default
+2024-09-30 11:24:39,185 INFO     root            Display format: "default"

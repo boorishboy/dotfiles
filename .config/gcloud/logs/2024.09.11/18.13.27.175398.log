@@ -1,0 +1,7 @@
+2024-09-11 18:13:27,178 DEBUG    root            Loaded Command Group: ['gcloud', 'storage']
+2024-09-11 18:13:27,254 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'ls']
+2024-09-11 18:13:27,255 DEBUG    root            Running [gcloud.storage.ls] with arguments: [PATH:1: "['gs://asset-protocols']"]
+2024-09-11 18:13:27,265 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): storage.googleapis.com:443
+2024-09-11 18:13:27,381 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/asset-protocols/o?alt=json&fields=prefixes%2Citems%2Fname%2Citems%2Fsize%2Citems%2Fgeneration%2CnextPageToken&delimiter=%2F&includeFoldersAsPrefixes=True&maxResults=1000&projection=noAcl HTTP/1.1" 200 3
+2024-09-11 18:13:27,383 DEBUG    root            Chosen display Format:default
+2024-09-11 18:13:27,383 INFO     root            Display format: "default"

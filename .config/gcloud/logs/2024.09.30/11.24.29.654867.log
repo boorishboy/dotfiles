@@ -1,0 +1,28 @@
+2024-09-30 11:24:29,658 DEBUG    root            Loaded Command Group: ['gcloud', 'storage']
+2024-09-30 11:24:29,735 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'ls']
+2024-09-30 11:24:29,736 DEBUG    root            Running [gcloud.storage.ls] with arguments: [PATH:1: "['gs://ws1-icons']"]
+2024-09-30 11:24:29,752 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2024-09-30 11:24:29,753 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2024-09-30 11:24:29,927 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2024-09-30 11:24:29,951 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): storage.googleapis.com:443
+2024-09-30 11:24:30,158 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/ws1-icons/o?alt=json&fields=prefixes%2Citems%2Fname%2Citems%2Fsize%2Citems%2Fgeneration%2CnextPageToken&delimiter=%2F&includeFoldersAsPrefixes=True&maxResults=1000&projection=noAcl HTTP/1.1" 200 37
+2024-09-30 11:24:30,163 DEBUG    root            Chosen display Format:default
+2024-09-30 11:24:30,164 INFO     root            Display format: "default"
+2024-09-30 11:24:30,167 DEBUG    root            Checking for updates...
+2024-09-30 11:24:30,173 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2024-09-30 11:24:30,332 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/1.1" 200 227002
+2024-09-30 11:24:30,438 DEBUG    root            Updating notification cache...
+2024-09-30 11:24:30,438 DEBUG    root            Activating notification: [default]
+2024-09-30 11:24:30,438 INFO     ___FILE_ONLY___ 
+
+Updates are available for some Google Cloud CLI components.  To install them,
+please run:
+  $ gcloud components update
+
+
+2024-09-30 11:24:30,442 INFO     ___FILE_ONLY___ 
+
+To take a quick anonymous survey, run:
+  $ gcloud survey
+
+
