@@ -210,3 +210,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 eval "$(pyenv init -)"
 
+
+# Created by `pipx` on 2024-10-15 11:52:58
+export PATH="$PATH:/Users/wojciech.chamski@stxnext.pl/.local/bin"

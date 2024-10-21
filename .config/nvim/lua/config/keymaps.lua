@@ -7,3 +7,4 @@ local expr_opts = { noremap = true, expr = true, silent = true }
 
 keymap("n", "<Leader>d", '"_d', default_opts)
 keymap("x", "<Leader>d", '"_d', default_opts)
+keymap("n", "<Leader>ot", ":ObsidianTemplate<CR>", { desc = "Open Obsidian Template Selection" })
