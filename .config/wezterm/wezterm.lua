@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 -- Color scheme
-config.color_scheme = "Tokyo Night"
+config.color_scheme = "tokyonight"
 
 -- Font Config
 config.font = wezterm.font("JetBrainsMono Nerd Font")
