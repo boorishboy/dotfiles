@@ -163,3 +163,5 @@ symbol = " "
 [gcloud]
 disabled = true
 
+[username]
+disabled = true
