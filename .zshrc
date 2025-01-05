@@ -84,8 +84,6 @@ export SECOND_BRAIN="$HOME/Documents/second-brain"
 export SCRIPTS="$HOME/Documents/scripts"
 export GOPATH=$HOME/go
 export PATH="$PATH:$SCRIPTS:$GOPATH/bin/"
-export STX="$HOME/Documents/stxnext/"
-export BAT_THEME="gruvbox-dark"
 export DOTFILES="$HOME/dotfiles/"
 # export MANPATH="/usr/local/man:$MANPATH"
 #
@@ -190,26 +188,7 @@ function y() {
   rm -f -- "$tmp"
 }
 
-if [ $(hostname) != "blackbox.local" ]; then
-  # The next line updates PATH for the Google Cloud SDK.
-  if [ -f '/Users/$USER/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/boorish/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-  # The next line enables shell command completion for gcloud.
-  if [ -f '/Users/$USER/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/boorish/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-  
-  source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-  source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-
-fi
-
 eval "$(starship init zsh)"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-eval "$(pyenv init -)"
-
-
-# Created by `pipx` on 2024-10-15 11:52:58
-export PATH="$PATH:/Users/wojciech.chamski@stxnext.pl/.local/bin"
