@@ -36,7 +36,6 @@
                     },
                     {
                         "description": "Hyper Navigation",
-                        "enabled": false,
                         "manipulators": [
                             {
                                 "description": "command + h = shift + left",

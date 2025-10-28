@@ -2,24 +2,13 @@
 -- stylua: ignore
 if true then return {} end
 
--- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
+-- every spec file under config.plugins will be loaded automatically by lazy.nvim
 --
 -- In your plugin files, you can:
 -- * add extra plugins
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
-  -- add gruvbox
-  { "ellisonleao/gruvbox.nvim" },
-
-  -- Configure LazyVim to load gruvbox
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
-  },
-
   -- change trouble config
   {
     "folke/trouble.nvim",
@@ -30,13 +19,22 @@ return {
   -- disable trouble
   { "folke/trouble.nvim", enabled = false },
 
+  -- add symbols-outline
+  {
+    "simrat39/symbols-outline.nvim",
+    cmd = "SymbolsOutline",
+    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+    config = true,
+  },
+
   -- override nvim-cmp and add cmp-emoji
   {
     "hrsh7th/nvim-cmp",
     dependencies = { "hrsh7th/cmp-emoji" },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
+      local cmp = require("cmp")
+      opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
     end,
   },
 
@@ -62,17 +60,15 @@ return {
       },
     },
   },
-
-  -- add pyright to lspconfig
+  -- add telescope-fzf-native
   {
-    "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    opts = {
-      ---@type lspconfig.options
-      servers = {
-        -- pyright will be automatically installed with mason and loaded with lspconfig
-        pyright = {},
-      },
+    "telescope.nvim",
+    dependencies = {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+      config = function()
+        require("telescope").load_extension("fzf")
+      end,
     },
   },
 
@@ -82,7 +78,7 @@ return {
     dependencies = {
       "jose-elias-alvarez/typescript.nvim",
       init = function()
-        require("lazyvim.util").lsp.on_attach(function(_, buffer)
+        require("lazyvim.util").on_attach(function(_, buffer)
           -- stylua: ignore
           vim.keymap.set( "n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
           vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
@@ -95,6 +91,36 @@ return {
       servers = {
         -- tsserver will be automatically installed with mason and loaded with lspconfig
         tsserver = {},
+        pyright = {
+          settings = {
+            pyright = {},
+            python = {
+              analysis = {
+                autoImportCompletions = true,
+                autoSearchPaths = true,
+                diagnosticMode = "openFilesOnly",
+                useLibraryCodeForTypes = true,
+                typeCheckingMode = "off",
+              },
+            },
+          },
+        },
+        gopls = {
+          on_attach = on_attach,
+          capabilities = capabilities,
+          cmd = { "gopls" },
+          filetypes = { "go", "gomod", "gowork", "gotmpl" },
+          root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+          settings = {
+            gopls = {
+              completeUnimported = true,
+              usePlaceholders = true,
+              analyses = {
+                unusedparams = true,
+              },
+            },
+          },
+        },
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
@@ -118,9 +144,17 @@ return {
   -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
+    require("nvim-treesitter.configs").setup({
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
+    }),
     opts = {
       ensure_installed = {
         "bash",
+        "hcl",
+        "help",
         "html",
         "javascript",
         "json",
@@ -132,8 +166,10 @@ return {
         "regex",
         "tsx",
         "typescript",
+        "terraform",
         "vim",
         "yaml",
+        "go",
       },
     },
   },
@@ -157,11 +193,7 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function(_, opts)
-      table.insert(opts.sections.lualine_x, {
-        function()
-          return "😄"
-        end,
-      })
+      table.insert(opts.sections.lualine_x, "😄")
     end,
   },
 
@@ -179,7 +211,7 @@ return {
   -- use mini.starter instead of alpha
   { import = "lazyvim.plugins.extras.ui.mini-starter" },
 
-  -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
+  -- add jsonls and schemastore ans setup treesitter for json, json5 and jsonc
   { import = "lazyvim.plugins.extras.lang.json" },
 
   -- add any tools you want to have installed below
@@ -191,6 +223,8 @@ return {
         "shellcheck",
         "shfmt",
         "flake8",
+        "marksman",
+        "gopls",
       },
     },
   },

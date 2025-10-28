@@ -1,2 +1,20 @@
-theme = tokyonight
+theme = gruvbox dark
 font-size = 18
+
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
+
+keybind = ctrl+space>h=new_split:left
+keybind = ctrl+space>j=new_split:down
+keybind = ctrl+space>k=new_split:up
+keybind = ctrl+space>l=new_split:right
+keybind = ctrl+space>f=toggle_split_zoom
+
+keybind = ctrl+space>n=next_tab
+keybind = ctrl+space>p=previous_tab
+
+window-save-state = always
+
+shell-integration-features = ssh-terminfo,ssh-env

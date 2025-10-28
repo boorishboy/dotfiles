@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 -- Color scheme
-config.color_scheme = "tokyonight"
+config.color_scheme = "Gruvbox Dark (Gogh)"
 
 -- Font Config
 config.font = wezterm.font("JetBrainsMono Nerd Font")
@@ -17,6 +17,8 @@ config.window_decorations = "RESIZE"
 
 -- Move tabs to bottom
 config.tab_bar_at_bottom = true
+-- Disable tab bar if only one tab
+config.hide_tab_bar_if_only_one_tab = false
 
 -- Key modifications
 config.keys = {

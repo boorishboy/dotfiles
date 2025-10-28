@@ -84,6 +84,7 @@ export SECOND_BRAIN="$HOME/Documents/second-brain"
 export SCRIPTS="$HOME/Documents/scripts"
 export GOPATH=$HOME/go
 export PATH="$PATH:$SCRIPTS:$GOPATH/bin/"
+export PATH="$PATH:/Users/wojtek/.local/bin/"
 export DOTFILES="$HOME/dotfiles/"
 # export MANPATH="/usr/local/man:$MANPATH"
 #
@@ -116,7 +117,7 @@ alias eject="diskutil eject"
 
 alias v=nvim
 alias oo="cd ~/Documents/vaults/notes/"
-
+alias wn="cd /Users/wojtek/Library/CloudStorage/OneDrive-Patronusec/notes/"
 #ls aliases
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias pip="/usr/local/bin/pip"
@@ -166,18 +167,7 @@ eval "$(fzf --zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
-function j() {
-    local preview_cmd="ls {2..}"
-    if command -v eza &> /dev/null; then
-        preview_cmd="eza -l --color=always --icons=always {2}"
-    fi
-
-    if [[ $# -eq 0 ]]; then
-                  cd "$(autojump -s | sort -k1gr | awk -F : '$1 ~ /[0-9]/ && $2 ~ /^\t*\// {print $1 $2}' | fzf --height 40% --reverse --inline-info --preview "$preview_cmd" --preview-window down:50% | cut -d$'\t' -f2- | sed 's/^\s*//')"
-    else
-        cd $(autojump $@)
-    fi
-}
+eval "$(zoxide init --cmd cd zsh)"
 
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
