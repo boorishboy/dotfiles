@@ -131,6 +131,9 @@ alias lla='eza --long --header --all --color=auto --icons=always --sort=type'
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias vf='v "$(fp)"'
 
+# brew aliases
+alias bup="brew update && brew upgrade && brew cleanup"
+
 
 #autocompletion snipe-cli on work laptop
 if [[ -f $HOME/.snipe-cli-complete.zsh ]]; then
