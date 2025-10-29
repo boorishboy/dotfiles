@@ -86,7 +86,8 @@ export GOPATH=$HOME/go
 export PATH="$PATH:$SCRIPTS:$GOPATH/bin/"
 export PATH="$PATH:/Users/wojtek/.local/bin/"
 export DOTFILES="$HOME/dotfiles/"
-# export MANPATH="/usr/local/man:$MANPATH"
+export EDITOR=vim
+export VISUAL=vim
 #
 # autocompletion 1Password
 eval "$(op completion zsh)"; compdef _op op
