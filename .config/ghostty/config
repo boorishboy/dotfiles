@@ -1,4 +1,6 @@
 theme = TokyoNight Night
+font-family = JetBrainsMono Nerd Font
+font-codepoint-map = U+1FBF0-U+1FBF9=Iosevka Nerd Font Mono
 font-size = 18
 
 window-save-state = always
