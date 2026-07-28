@@ -64,6 +64,12 @@ if.app-id = 'com.google.Chrome'
 if.window-title-regex-substring = '^about:blank - (?!Google Chrome).*$'
 run = ['layout floating']
 
+[[on-window-detected]]
+if.app-id="com.mitchellh.ghostty"
+run= [
+  "layout tiling",
+]
+
 
 # Possible values: (qwerty|dvorak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping

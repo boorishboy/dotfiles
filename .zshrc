@@ -81,11 +81,12 @@ source $ZSH/oh-my-zsh.sh
 # ---------------- environment variables ------------------
 
 export SECOND_BRAIN="$HOME/Documents/second-brain"
-export SCRIPTS="$HOME/Documents/scripts"
+export SCRIPTS="$HOME/scripts"
 export GOPATH=$HOME/go
-export PATH="$PATH:$SCRIPTS:$GOPATH/bin/"
+export PATH="$PATH:$SCRIPTS:$GOPATH/bin/:/Users/Wojciech.Chamski/.cargo/bin"
 export PATH="$PATH:/Users/wojtek/.local/bin/"
 export DOTFILES="$HOME/dotfiles/"
+export ICLOUD="/Users/Wojciech.Chamski/Library/Mobile\ Documents/com\~apple\~CloudDocs"
 export EDITOR=vim
 export VISUAL=vim
 #
@@ -117,8 +118,8 @@ alias lsdisk="diskutil list"
 alias eject="diskutil eject"
 
 alias v=nvim
-alias oo="cd ~/Documents/vaults/notes/"
-alias wn="cd /Users/wojtek/Library/CloudStorage/OneDrive-Patronusec/notes/"
+alias oo="cd /Users/Wojciech.Chamski/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/notes"
+alias wn="cd /Users/Wojciech.Chamski/Library/CloudStorage/OneDrive-Patronusec/notes/"
 #ls aliases
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias pip="/usr/local/bin/pip"
@@ -135,6 +136,8 @@ alias vf='v "$(fp)"'
 # brew aliases
 alias bup="brew update && brew upgrade && brew cleanup"
 
+# awsp
+alias awsp="source _awsp"
 
 #autocompletion snipe-cli on work laptop
 if [[ -f $HOME/.snipe-cli-complete.zsh ]]; then
@@ -182,7 +185,22 @@ function y() {
   rm -f -- "$tmp"
 }
 
+function fkill() {
+  local signal="${1:--15}"  # default SIGTERM, pass -9 for SIGKILL
+  ps aux | fzf --multi --header-lines=1 --prompt="kill> " | awk '{print $2}' | xargs kill "$signal"
+}
+
 eval "$(starship init zsh)"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(fnm env --use-on-cd)"
+
+export ANDROID_HOME=$HOME/Library/Android/Sdk
+
+# Add Android SDK tools to PATH
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
