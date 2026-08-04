@@ -72,7 +72,7 @@ DISABLE_LS_COLORS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast zsh-autosuggestions zsh-syntax-highlighting battery web-search last-working-dir)
+plugins=(gitfast zsh-autosuggestions zsh-syntax-highlighting last-working-dir)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,8 +87,8 @@ export PATH="$PATH:$SCRIPTS:$GOPATH/bin/:/Users/Wojciech.Chamski/.cargo/bin"
 export PATH="$PATH:/Users/wojtek/.local/bin/"
 export DOTFILES="$HOME/dotfiles/"
 export ICLOUD="/Users/Wojciech.Chamski/Library/Mobile\ Documents/com\~apple\~CloudDocs"
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 #
 # autocompletion 1Password
 eval "$(op completion zsh)"; compdef _op op

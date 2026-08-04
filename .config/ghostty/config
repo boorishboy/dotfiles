@@ -7,3 +7,4 @@ window-save-state = always
 
 shell-integration-features = ssh-terminfo,ssh-env
 keybind = shift+enter=text:\x1b\r
+keybind = global:ctrl+backquote=toggle_quick_terminal
