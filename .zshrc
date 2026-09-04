@@ -190,6 +190,12 @@ function fkill() {
   ps aux | fzf --multi --header-lines=1 --prompt="kill> " | awk '{print $2}' | xargs kill "$signal"
 }
 
+# evidence gathering wrapper to dump command and output
+evidence() {
+  local boundary_id="$1"; shift
+  { echo "=== $(date -u +%Y-%m-%dT%H:%M:%SZ) ==="; echo "\$ $*"; "$@"; } | tee -a "evidence/${boundary_id}.txt"
+}
+
 eval "$(starship init zsh)"
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
