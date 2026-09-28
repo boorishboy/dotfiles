@@ -38,8 +38,8 @@ ZSH_THEME=""
 # Uncomment the following line to disable colors in ls.
 DISABLE_LS_COLORS="true"
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# Disable Oh My Zsh terminal-title escape sequences inside tmux -CC.
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -211,3 +211,17 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 eval "$(tv init zsh)"
+
+# ---------------- tmux autostart ------------------
+# First terminal starts the server (continuum then restores the last resurrect save);
+# later terminals attach to a detached session, or get a new one if all are in use.
+# Skipped in Rootshell: it runs tmux -CC itself (and reports TERM_PROGRAM=ghostty).
+if command -v tmux >/dev/null && [[ -o interactive && -z "$TMUX" && -z "$CLAUDECODE" \
+  && -z "$ROOTSHELL_RESOURCES_DIR" && -z "$LC_ROOTSHELL_PANE" \
+  && "$TERM_PROGRAM" != "vscode" && "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
+  if tmux has-session 2>/dev/null && [[ -z "$(tmux list-clients 2>/dev/null)" ]]; then
+    tmux attach-session
+  else
+    tmux new-session
+  fi
+fi

@@ -1,10 +1,9 @@
-return { -- override blink.cmp plugin
-  "Saghen/blink.cmp",
+return {
+  "saghen/blink.cmp",
   opts = {
     keymap = {
+      -- Enter accepts completion; Tab and Shift-Tab move through snippet fields.
       preset = "enter",
-      ["<Tab>"] = { "select_next", "fallback" },
-      ["<S-Tab>"] = { "select_prev", "fallback" },
     },
   },
 }
