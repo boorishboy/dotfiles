@@ -213,15 +213,13 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 eval "$(tv init zsh)"
 
 # ---------------- tmux autostart ------------------
-# First terminal starts the server (continuum then restores the last resurrect save);
-# later terminals attach to a detached session, or get a new one if all are in use.
+# Attach to the most recent session; if no server is running, start one
+# (continuum then restores the last resurrect save).
 # Skipped in Rootshell: it runs tmux -CC itself (and reports TERM_PROGRAM=ghostty).
+# Skipped in the Claude desktop app's terminal panel, whose shell's parent is "Claude Helper".
 if command -v tmux >/dev/null && [[ -o interactive && -z "$TMUX" && -z "$CLAUDECODE" \
   && -z "$ROOTSHELL_RESOURCES_DIR" && -z "$LC_ROOTSHELL_PANE" \
+  && "$(ps -o comm= -p $PPID)" != *"Claude Helper"* \
   && "$TERM_PROGRAM" != "vscode" && "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]]; then
-  if tmux has-session 2>/dev/null && [[ -z "$(tmux list-clients 2>/dev/null)" ]]; then
-    tmux attach-session
-  else
-    tmux new-session
-  fi
+  tmux attach-session 2>/dev/null || tmux new-session
 fi

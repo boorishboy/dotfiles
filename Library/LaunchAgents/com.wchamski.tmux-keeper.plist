@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.wchamski.tmux-keeper</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/Wojciech.Chamski/dotfiles/scripts/tmux-keeper</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StartInterval</key>
+  <integer>900</integer>
+  <!-- the tmux server outlives this job; don't let launchd kill it when the script exits -->
+  <key>AbandonProcessGroup</key>
+  <true/>
+  <key>StandardErrorPath</key>
+  <string>/tmp/tmux-keeper.err</string>
+</dict>
+</plist>

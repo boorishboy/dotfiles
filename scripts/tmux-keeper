@@ -1,0 +1,19 @@
+#!/bin/zsh
+# Run by launchd (Library/LaunchAgents/com.wchamski.tmux-keeper.plist) at login and every 15 min.
+# - No server: start one detached; tmux-continuum restores the last resurrect save into it.
+# - Server running: save with tmux-resurrect. continuum's own autosave hooks into status-right,
+#   which tmux -CC clients (Rootshell) never draw, so it can't be relied on.
+
+tmux=/opt/homebrew/bin/tmux
+export LANG=${LANG:-en_US.UTF-8}
+
+if ! $tmux has-session 2>/dev/null; then
+  $tmux new-session -d   # session "0"; resurrect removes it once the restore finishes
+  exit
+fi
+
+# Skip saving shortly after the server starts, so a half-finished restore never overwrites a good save
+started=$($tmux display-message -p '#{start_time}')
+(( $(date +%s) - started < 300 )) && exit
+
+$tmux run-shell "$HOME/.tmux/plugins/tmux-resurrect/scripts/save.sh quiet"
