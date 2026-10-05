@@ -75,6 +75,10 @@ run= [
 if.app-id = 'com.apple.MobileSMS'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'com.apple.Music'
+run = 'layout floating'
+
 # Pin apps to fixed workspaces so AeroSpace's window-adoption on launch
 # (which otherwise dumps everything onto one auto-generated workspace,
 # see https://github.com/nikitabobko/AeroSpace/issues/651) can't scatter them.
@@ -99,7 +103,7 @@ if.app-id = 'com.anthropic.claudefordesktop'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
-if.app-id = 'com.kk2.rootshell'
+if.app-id = 'net.kovidgoyal.kitty'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
