@@ -26,21 +26,23 @@ def main() -> int:
         return 1
 
     current_window_id = os.environ.get("KITTY_WINDOW_ID")
-    focused: tuple[dict, dict] | None = None
+    self_window = None
+    id_window = None
+
     for os_window in os_windows:
         for tab in os_window.get("tabs", []):
             for window in tab.get("windows", []):
-                if window.get("is_self") or (
-                    current_window_id is not None
-                    and str(window.get("id")) == current_window_id
-                ):
-                    return close_target(tab, window)
                 if window.get("is_focused"):
-                    focused = (tab, window)
+                    return close_target(tab, window)
+                if window.get("is_self"):
+                    self_window = (tab, window)
+                if str(window.get("id")) == current_window_id:
+                    id_window = (tab, window)
 
-    if focused is not None:
-        return close_target(*focused)
-
+    if self_window is not None:
+        return close_target(*self_window)
+    if id_window is not None:
+        return close_target(*id_window)
     sys.stderr.write("Could not find the focused kitty window.\n")
     return 1
 

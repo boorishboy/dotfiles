@@ -85,7 +85,9 @@ export SCRIPTS="$HOME/scripts"
 export GOPATH=$HOME/go
 export PATH="$PATH:$SCRIPTS:$GOPATH/bin/:/Users/Wojciech.Chamski/.cargo/bin"
 export DOTFILES="$HOME/dotfiles/"
+{{- if eq .chezmoi.hostname "PTN-Laptop-101" }}
 export ICLOUD="/Users/Wojciech.Chamski/Library/Mobile\ Documents/com\~apple\~CloudDocs"
+{{- end }}
 export EDITOR=nvim
 export VISUAL=nvim
 export NOTES="~/notes"

@@ -3,8 +3,14 @@ font-family = JetBrainsMono Nerd Font
 font-codepoint-map = U+1FBF0-U+1FBF9=Iosevka Nerd Font Mono
 font-size = 18
 
+background-opacity = 0.8
+background-blur = true
+window-padding-x = 5
+window-padding-y = 5
+
+
 window-save-state = always
 
 shell-integration-features = ssh-terminfo,ssh-env
 keybind = shift+enter=text:\x1b\r
-keybind = global:ctrl+backquote=toggle_quick_terminal
+keybind = global:f13=toggle_quick_terminal

@@ -1,0 +1,132 @@
+#!/usr/bin/env bash
+
+set -o pipefail
+
+NOTES="${NOTES:-$HOME/notes}"
+TODAY="$NOTES/daily/$(date +%F).md"
+EDITOR="${EDITOR:-nvim}"
+
+mkdir -p "$NOTES/daily"
+
+usage() {
+    cat <<'EOF'
+Usage:
+  n "text"          Append text to today's journal
+  n -c "command"    Execute and capture command output
+  n -d              Open today's journal
+  n -i              Open inbox
+  n -f              Fuzzy-find a note
+  n -s [query]      Search note contents
+  n -n filename     Create or open a note
+  n -h              Show help
+EOF
+}
+
+case "${1:-}" in
+
+    -h|--help)
+        usage
+        ;;
+
+    -d)
+        "$EDITOR" "$TODAY"
+        ;;
+
+    -i)
+        "$EDITOR" "$NOTES/inbox.md"
+        ;;
+
+    -f)
+        file=$(
+            find "$NOTES" -type f -name '*.md' |
+            sort |
+            fzf --prompt="Notes > "
+        ) || exit 0
+
+        [ -n "$file" ] && "$EDITOR" "$file"
+        ;;
+
+    -s)
+        if [ -n "${2:-}" ]; then
+            rg -n -i -- "$2" "$NOTES"
+        else
+            file=$(
+                rg --files "$NOTES" -g '*.md' |
+                xargs -r rg -n -i --color=never . |
+                fzf --delimiter=: --nth=3..
+            ) || exit 0
+
+            [ -n "$file" ] || exit 0
+
+            path="${file%%:*}"
+            rest="${file#*:}"
+            line="${rest%%:*}"
+
+            "$EDITOR" "+${line}" "$path"
+        fi
+        ;;
+
+    -n)
+        [ -n "${2:-}" ] || {
+            echo "Missing filename"
+            exit 1
+        }
+
+        file="$NOTES/knowledge/${2%.md}.md"
+        mkdir -p "$(dirname "$file")"
+        "$EDITOR" "$file"
+        ;;
+
+    -c)
+        shift
+
+        [ "$#" -gt 0 ] || {
+            echo "Missing command"
+            exit 1
+        }
+
+        command_text="$*"
+        output=$(mktemp) || exit 1
+        trap 'rm -f "$output"' EXIT
+
+        echo "Running: $command_text"
+
+        bash -o pipefail -c "$command_text" > "$output" 2>&1
+        status=$?
+
+        cat "$output"
+
+        {
+            printf '\n## %s - Command\n\n' "$(date '+%H:%M:%S')"
+            printf '```bash\n%s\n```\n\n' "$command_text"
+            printf 'Exit status: %s\n\n' "$status"
+            printf '```text\n'
+            cat "$output"
+            printf '\n```\n'
+        } >> "$TODAY"
+
+        echo "Saved to $TODAY"
+
+        exit "$status"
+        ;;
+
+    "")
+        "$EDITOR" "$TODAY"
+        ;;
+
+    -*)
+        echo "Unknown option: $1"
+        usage
+        exit 1
+        ;;
+
+    *)
+        {
+            printf '\n## %s\n\n' "$(date '+%H:%M:%S')"
+            printf '%s\n' "$*"
+        } >> "$TODAY"
+
+        echo "Saved to $TODAY"
+        ;;
+
+esac
