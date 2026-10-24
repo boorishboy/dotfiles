@@ -221,8 +221,8 @@ evidence() {
 eval "$(starship init zsh)"
 
 export PATH="$HOME/.local/bin:$PATH"
+{{- if eq .chezmoi.hostname "PTN-Laptop-101" }}
 eval "$(fnm env --use-on-cd)"
-
 export ANDROID_HOME=$HOME/Library/Android/Sdk
 
 # Add Android SDK tools to PATH
@@ -230,4 +230,5 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
+{{- end }}
 eval "$(tv init zsh)"
